@@ -2,8 +2,13 @@ services:
   - type: web
     name: telegram-bot
     env: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python 123.py"
+    region: oregon
+    buildCommand: |
+      echo "python-3.10.13" > runtime.txt
+      pip install -r requirements.txt
+    startCommand: python 123.py
     envVars:
       - key: API_TOKEN
-        value: ""
+        value: "ТОКЕН_БОТА"
+      - key: PORT
+        value: "10000"
